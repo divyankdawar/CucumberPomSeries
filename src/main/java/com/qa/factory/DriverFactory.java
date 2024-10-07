@@ -23,6 +23,7 @@ public class DriverFactory {
 		if(browser.equals("chrome")) {
 //			WebDriverManager.chromedriver().setup();
 			System.setProperty("webdriver.chrome.driver", "E:/chromedriver/chromedriver.exe");
+			System.setProperty("webdriver.chrome.silentOutput", "true");  
 			tlDriver.set(new ChromeDriver());
 		}
 		else if(browser.equals("firefox")) {
@@ -42,6 +43,11 @@ public class DriverFactory {
 	 * this is used to get the driver with ThreadLocal
 	 * @return
 	 */
+     /**
+      * The synchronized keyword ensures that only one thread can access and 
+      * modify the tlDriver variable at a time, preventing race conditions and data inconsistencies.
+      * @return
+      */
 	public static synchronized WebDriver getDriver() {
 		return tlDriver.get();
 	}

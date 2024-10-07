@@ -7,7 +7,7 @@ public class LoginPage {
 	
 	private WebDriver driver;
 	
-	//1. By Locators:
+	//1. By Locators: or OR (Object Repository)
 	private By emailId = By.id("email");
 	private By password = By.id("passwd");
 	private By signInButton = By.id("SubmitLogin");

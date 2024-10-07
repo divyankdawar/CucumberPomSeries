@@ -59,7 +59,13 @@ public class LoginPageSteps {
          loginPage.clickOnLogin();
 	}
 
+/**
+ * Benefits of Separation:
 
+Separation of Concerns: Having separate classes promotes the Single Responsibility Principle (SRP). The AccountPageSteps class focuses on interacting with the page elements through the AccountsPage object, while AccountsPage deals with locating and interacting with elements on the actual page.
+Maintainability: As your test suite grows, separate classes make it easier to maintain and update concerns individually. Changes to how you interact with the page (steps) won't affect the actual page object implementation, and vice versa.
+Reusability: The AccountsPage class can potentially be reused across different feature files or even other test suites that interact with the same page.
+ */
 
 
 

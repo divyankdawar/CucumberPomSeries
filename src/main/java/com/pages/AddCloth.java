@@ -70,6 +70,8 @@ public class AddCloth {
 	}
 	
 	public void ClickOnProceedCheckout() {
+		
+		//Added Explicit Wait Here
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(Checkout)).click();
 	}

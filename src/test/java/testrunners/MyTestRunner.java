@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = {"src/test/resources/AppFeatures/AddCloth.feature"},
 		glue = {"stepdefinitions","AppHooks"},
-		tags = "@ShoppingCartSummaryValidation",
+//		tags = "@ShoppingCartSummaryValidation",
 		plugin = {"pretty"})
 
 public class MyTestRunner {

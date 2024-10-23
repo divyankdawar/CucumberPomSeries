@@ -18,13 +18,8 @@ Given user is on the Women page
 When user clicks on blouse
 And change the color to white
 And Press add to cart button
+And the message "Product successfully added to your shopping cart" is displayed
 And Press Proceed to checkout
-Then the message "Product successfully added to your shopping cart" is displayed
-
- @ShoppingCartSummaryValidation
-Scenario: Shopping cart summary validation
-Given user has already added a white blouse to the cart
-When page title of summary page is "Order - My Shop"
-Then the following product information should be correct
-
+And user clicks on the Proceed to checkout button
+Then The address page with title "Address - My Shop" opens 
 

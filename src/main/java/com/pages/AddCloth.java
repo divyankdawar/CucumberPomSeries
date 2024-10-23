@@ -1,11 +1,14 @@
 package com.pages;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AddCloth {
 
@@ -17,12 +20,19 @@ public class AddCloth {
 	private By whiteDress = By.xpath("//a[@id='color_8'and @title = 'White']");
 	private By addToCart = By.xpath("//span[contains(text(),'Add to cart')]");
 	private By checkout = By.cssSelector("a[title='Proceed to checkout'] ");
-    private By viewcart = By.xpath("//a[@title='View my shopping cart'] /b");
-    private By productInfos = By.cssSelector("td.cart_description  small");
-    
-    
-    
+	private By viewcart = By.xpath("//a[@title='View my shopping cart'] /b");
+	private By Checkout = By.cssSelector(".cart_navigation .button.standard-checkout > span");
+	//    private By productInfos = By.cssSelector("td.cart_description  small");
+	//    private By descriptionBlouse = By.xpath("//td[@class = 'cart_description'] //p");
+
+
+	public void setUp() {
+		// Set the global implicit wait
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		// Other setup code...
+	}
 	public void clickOnWomen() {
+
 		driver.findElement(womenButton).click();
 	}
 
@@ -50,26 +60,28 @@ public class AddCloth {
 	}
 
 	public void clickOnProceedToCheckout() {
-		driver.findElement(checkout).click();
+
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.elementToBeClickable(checkout)).click();
+		//	driver.findElement(checkout).click();
 	}
 	public void viewShoppingCart() {
 		driver.findElement(viewcart).click();
 	}
- 
-	public List<String> productInfoMethod() {
-		List<String> cartSummary = new ArrayList<>();
-		List<WebElement> accountsHeaderList = driver.findElements(productInfos);
-		
-		for(WebElement e: accountsHeaderList) {
-			String text = e.getText();
-			System.out.println(text);
-			cartSummary.add(text);
-		}
-		System.out.println(cartSummary);
-		
-		return cartSummary;
-		
+	
+	public void ClickOnProceedCheckout() {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.elementToBeClickable(Checkout)).click();
 	}
-	
-	
+	public String getTitleAddress() throws InterruptedException {
+		
+		
+		return driver.getTitle();
+
+	}
+
+
+
+
+
 }

@@ -27,7 +27,8 @@ public class AddCloth {
 
 
 	public void setUp() {
-		// Set the global implicit wait
+		// Set the global implicit wait old way ( new way is 
+	//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));)
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		// Other setup code...
 	}
@@ -70,6 +71,8 @@ public class AddCloth {
 	}
 	
 	public void ClickOnProceedCheckout() {
+		
+		//Added Explicit Wait Here
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(Checkout)).click();
 	}

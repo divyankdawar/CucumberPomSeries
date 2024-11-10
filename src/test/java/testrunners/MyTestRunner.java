@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"src/test/resources/AppFeatures/AddCloth.feature"},
+		features = {"src/test/resources/AppFeatures/Blog.feature"},
 		glue = {"stepdefinitions","AppHooks"},
 //		tags = "@ShoppingCartSummaryValidation",
 		plugin = {"pretty"})
